@@ -1,3 +1,4 @@
+#include "mgpch.h"
 #include <Mug.h>
 
 class Sandbox : public Mug::Application {

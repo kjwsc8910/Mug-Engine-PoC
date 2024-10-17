@@ -4,6 +4,9 @@
     <Filter Include="Mug">
       <UniqueIdentifier>{EE09880B-5A13-887C-E38E-9E7C4F97937C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mug\Events">
+      <UniqueIdentifier>{127EAD83-FE35-EFD0-673D-C82C53148AC1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Mug.h" />
@@ -16,9 +19,22 @@
     <ClInclude Include="src\Mug\EntryPoint.h">
       <Filter>Mug</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mug\Events\ApplicationEvent.h">
+      <Filter>Mug\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mug\Events\Event.h">
+      <Filter>Mug\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mug\Events\KeyEvent.h">
+      <Filter>Mug\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mug\Events\MouseEvent.h">
+      <Filter>Mug\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Mug\Log.h">
       <Filter>Mug</Filter>
     </ClInclude>
+    <ClInclude Include="src\mgpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mug\Application.cpp">
@@ -27,5 +43,6 @@
     <ClCompile Include="src\Mug\Log.cpp">
       <Filter>Mug</Filter>
     </ClCompile>
+    <ClCompile Include="src\mgpch.cpp" />
   </ItemGroup>
 </Project>

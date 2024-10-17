@@ -2,15 +2,13 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Mug {
 
 	class MUG_API KeyEvent : public Event {
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
 
-		EVENT_CLASS_CATAGORY(EventCatagoryKeyboard | EventCatagoryInput)
+		EVENT_CLASS_Category(EventCategoryKeyboard | EventCategoryInput)
 	protected:
 		KeyEvent(int keycode)
 			: m_KeyCode(keycode) {}

@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Mug {
 
 	class MUG_API MouseMovedEvent : public Event {
@@ -21,7 +19,7 @@ namespace Mug {
 		}
 
 		EVENT_CLASS_TYPE(MouseMoved)
-		EVENT_CLASS_CATAGORY(EventCatagoryMouse | EventCatagoryInput)
+		EVENT_CLASS_Category(EventCategoryMouse | EventCategoryInput)
 	private:
 		float m_MouseX, m_MouseY;
 	};
@@ -41,7 +39,7 @@ namespace Mug {
 		}
 
 		EVENT_CLASS_TYPE(MouseScrolled)
-		EVENT_CLASS_CATAGORY(EventCatagoryMouse | EventCatagoryInput)
+		EVENT_CLASS_Category(EventCategoryMouse | EventCategoryInput)
 	private:
 		float m_XOffset, m_YOffset;
 	};
@@ -50,7 +48,7 @@ namespace Mug {
 	public:
 		inline int GetMouseButton() const { return m_Button; }
 
-		EVENT_CLASS_CATAGORY(EventCatagoryMouse, EventCatagoryInput)
+		EVENT_CLASS_Category(EventCategoryMouse, EventCategoryInput)
 	protected:
 		MouseButtonEvent(int button)
 			: m_Button(button) {}

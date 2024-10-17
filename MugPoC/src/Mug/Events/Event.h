@@ -1,9 +1,6 @@
 #pragma once
 
-#include "../Core.h"
-
-#include <string>
-#include <functional>
+#include "Mug/Core.h"
 
 namespace Mug {
 
@@ -17,31 +14,31 @@ namespace Mug {
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
-	enum EventCatagory {
+	enum EventCategory {
 		none = 0,
-		EventCatagoryApplication	= BIT(0),
-		EventCatagoryInput			= BIT(1),
-		EventCatagoryKeyboard		= BIT(2),
-		EventCatagoryMouse			= BIT(3),
-		EventCatagoryMouseButton	= BIT(4)
+		EventCategoryApplication	= BIT(0),
+		EventCategoryInput			= BIT(1),
+		EventCategoryKeyboard		= BIT(2),
+		EventCategoryMouse			= BIT(3),
+		EventCategoryMouseButton	= BIT(4)
 	};
 
 #define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; }\
 								virtual EventType GetEventType() const override { return GetStaticType(); }\
 								virtual const char* GetName() const override { return #type; }
 
-#define EVENT_CLASS_CATAGORY(catagory) virtual int GetCatagoryFlags() const override { return catagory; }
+#define EVENT_CLASS_Category(Category) virtual int GetCategoryFlags() const override { return Category; }
 
 	class MUG_API Event {
 		friend class EventDispatcher;
 	public:
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
-		virtual int GetCatagoryFlags() const = 0;
+		virtual int GetCategoryFlags() const = 0;
 		virtual std::string ToString() const { return GetName(); }
 
-		inline bool IsInCatagory(EventCatagory catagory) {
-			return GetCatagoryFlags() & catagory;
+		inline bool IsInCategory(EventCategory category) {
+			return GetCategoryFlags() & category;
 		}
 	protected:
 		bool m_Handled = false;
@@ -65,5 +62,9 @@ namespace Mug {
 	private:
 		Event& m_Event;
 	};
+
+	//inline std::ostream& operator<<(std::ostream& os, const Event& e) {
+	//	return os << e.ToString();
+	//}
 
 }
